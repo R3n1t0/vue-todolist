@@ -5,20 +5,42 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato:ital,wght@0,300;1,400&family=Montserrat:wght@300;400&family=Roboto&display=swap" rel="stylesheet">
+
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous'/>
 
   <link rel="stylesheet" href="style.css">
 
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <title>Vue Todo List</title>
 </head>
 <body>
   
-  <div id="app">
-    
+  <div id="app" class="container">
+
+    <h1 class="title">Lista di cose da fare</h1>
+
+    <div class="new-todo">
+      <input 
+        v-model="newTodo"
+        type="text" placeholder="Nuovo da farsi">
+      <button @click="addTodo">Add</button>
+    </div>
+
+    <div class="todo-container">
+      <ul>
+        <li v-for="todo in todos">
+          {{todo}}
+          <i class="fa-solid fa-x"></i>
+        </li>
+      </ul>
+    </div>
+
   </div>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  
   <script src="script.js"></script>
 </body>
 </html>
