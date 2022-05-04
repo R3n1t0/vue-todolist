@@ -13,8 +13,21 @@ const app = new Vue({
   },
 
   methods:{
+
     addTodo(){
-      this.todos.push(this.newTodo)
+
+      if(this.newTodo.length > 1){
+        this.todos.push(this.newTodo);
+        this.newTodo = "";
+      }
+      
+    },
+
+    removeTodo(index){
+      if(confirm(`Sei sicuro di eliminare: ${this.todos[index]} ?`))
+      this.todos.splice(index, 1);
     }
+
   }
+
 })

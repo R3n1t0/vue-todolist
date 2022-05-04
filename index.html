@@ -23,18 +23,20 @@
 
     <div class="new-todo">
       <input 
-        v-model="newTodo"
+        v-model.trim="newTodo"
+        @keyup.enter="addTodo"
         type="text" placeholder="Nuovo da farsi">
       <button @click="addTodo">Add</button>
     </div>
 
     <div class="todo-container">
-      <ul>
-        <li v-for="todo in todos">
+      <ul v-if="todos.length > 0">
+        <li v-for="(todo, index) in todos">
           {{todo}}
-          <i class="fa-solid fa-x"></i>
+          <i @click="removeTodo(index)" class="fa-solid fa-x"></i>
         </li>
       </ul>
+      <h2 v-else>Non ci cose da fare</h2>
     </div>
 
   </div>
