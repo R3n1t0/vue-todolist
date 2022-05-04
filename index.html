@@ -23,17 +23,17 @@
 
     <div class="new-todo">
       <input 
-        v-model.trim="newTodo"
+        v-model.trim="newTodo.daFare"
         @keyup.enter="addTodo"
         type="text" placeholder="Nuovo da farsi">
-      <button @click="addTodo">Add</button>
+      <button @click="addTodo.daFare">Add</button>
     </div>
 
     <div class="todo-container">
       <ul v-if="todos.length > 0">
         <li v-for="(todo, index) in todos">
-          <div v-on:click="addClass" :class="{'marked-line' : isAddClass === true}">
-            {{todo}}
+          <div v-on:click="addClass" :class="{'marked-line' : addClass(index) === true}">
+            {{todo.daFare}}
           </div>
           
           <i @click="removeTodo(index)" class="fa-solid fa-x"></i>

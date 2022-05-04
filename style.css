@@ -68,3 +68,7 @@ body{
 .marked-line{
   text-decoration: line-through;
 }
+
+.not-marked{
+  text-decoration: none;
+}

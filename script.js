@@ -1,26 +1,46 @@
-
 const app = new Vue({
   el: "#app",
   data: {
     todos: [
-      "Studiare JavaScript",
-      "Ripassare JavaScript",
-      "Studiare VueJs",
-      "Non dimeticare JavaScript"
+      {
+        daFare: "Studiare JavaScript",
+        fatto: false
+      },
+      {
+        daFare: "Ripassare JavaScript",
+        fatto: false
+      },
+      {
+        daFare: "Studiare VueJs",
+        fatto: false
+      },
+      {
+        daFare: "Non dimeticare JavaScript",
+        fatto: false
+      },
+      {
+        daFare: "Ripassa VueJs",
+        fatto: false
+      }
+      
     ],
 
-    newTodo: "",
+    newTodo:{
+      daFare: "",
+      fatto: false
+    },
 
-    isAddClass: false
+   
+
   },
 
   methods:{
 
     addTodo(){
 
-      if(this.newTodo.length > 1){
-        this.todos.push(this.newTodo);
-        this.newTodo = "";
+      if(this.newTodo.daFare.length > 1){
+        this.todos.push(this.newTodo.daFare);
+        this.newTodo.daFare = "";
       }
       
     },
@@ -30,10 +50,11 @@ const app = new Vue({
       this.todos.splice(index, 1);
     },
 
-    addClass(){
-      this.isAddClass = true;
+    addClass(index){
+      this.todos[index].fatto = true;
 
-    }
+    },
+    
 
   }
 
