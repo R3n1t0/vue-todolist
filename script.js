@@ -9,7 +9,9 @@ const app = new Vue({
       "Non dimeticare JavaScript"
     ],
 
-    newTodo: ""
+    newTodo: "",
+
+    isAddClass: false
   },
 
   methods:{
@@ -26,6 +28,11 @@ const app = new Vue({
     removeTodo(index){
       if(confirm(`Sei sicuro di eliminare: ${this.todos[index]} ?`))
       this.todos.splice(index, 1);
+    },
+
+    addClass(){
+      this.isAddClass = true;
+
     }
 
   }

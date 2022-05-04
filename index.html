@@ -32,17 +32,18 @@
     <div class="todo-container">
       <ul v-if="todos.length > 0">
         <li v-for="(todo, index) in todos">
-          {{todo}}
+          <div v-on:click="addClass" :class="{'marked-line' : isAddClass === true}">
+            {{todo}}
+          </div>
+          
           <i @click="removeTodo(index)" class="fa-solid fa-x"></i>
         </li>
       </ul>
-      <h2 v-else>Non ci cose da fare</h2>
+      <h2 v-else>Non ci sono cose da fare</h2>
     </div>
 
   </div>
 
-
-  
   <script src="script.js"></script>
 </body>
 </html>
